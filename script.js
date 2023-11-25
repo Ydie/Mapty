@@ -97,8 +97,6 @@ class App {
     const { latitude } = position.coords;
     const { longitude } = position.coords;
 
-    console.log(`https://www.google.pl/maps/@${latitude},${longitude}`);
-
     const coords = [latitude, longitude];
     this.#map = L.map('map').setView(coords, this.#mapZoomLevel); // html
     //   console.log(map);
@@ -277,14 +275,13 @@ class App {
       },
     });
     // using the public interface
-    workout.click();
+    // workout.click();
   }
   _setLocalStorage() {
     localStorage.setItem('workouts', JSON.stringify(this.#workouts));
   }
   _getLocalStorage() {
     const data = JSON.parse(localStorage.getItem('workouts'));
-    console.log(data);
 
     if (!data) return;
 
